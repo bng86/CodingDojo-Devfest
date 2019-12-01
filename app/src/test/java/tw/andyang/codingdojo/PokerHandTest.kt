@@ -95,4 +95,37 @@ class PokerHandTest {
         val expected = false
         Assert.assertEquals(expected, actual)
     }
+
+    @Test
+    fun `FourOfAKind`(){
+
+        val pokers = ArrayList<Poker>()
+        pokers.add(Poker(Suit.Hearts, 1))
+        pokers.add(Poker(Suit.Spade, 1))
+        pokers.add(Poker(Suit.Clubs, 1))
+        pokers.add(Poker(Suit.Diamonds, 1))
+        pokers.add(Poker(Suit.Hearts, 5))
+
+        val actual: Boolean = PokerParser.isFourOfAKind(pokers)
+        val expected = true
+        Assert.assertEquals(expected, actual)
+
+    }
+
+    @Test
+    fun `NotFourOfAKind`(){
+
+        val pokers = ArrayList<Poker>()
+        pokers.add(Poker(Suit.Hearts, 1))
+        pokers.add(Poker(Suit.Spade, 5))
+        pokers.add(Poker(Suit.Clubs, 1))
+        pokers.add(Poker(Suit.Diamonds, 1))
+        pokers.add(Poker(Suit.Hearts, 5))
+
+        val actual: Boolean = PokerParser.isFourOfAKind(pokers)
+        val expected = false
+        Assert.assertEquals(expected, actual)
+
+    }
+
 }

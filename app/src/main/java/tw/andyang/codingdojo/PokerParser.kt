@@ -27,9 +27,18 @@ class PokerParser {
 
             val set = HashSet<Suit>()
             for (poker in pokers) {
-                set.add(poker.clubs)
+                set.add(poker.suit)
             }
             return set.size == 1
+        }
+
+        fun isFourOfAKind(pokers: java.util.ArrayList<Poker>): Boolean {
+            val set = HashSet<Int>()
+            for(poker in pokers){
+                set.add(poker.point)
+            }
+
+            return set.size == 2
         }
     }
 
