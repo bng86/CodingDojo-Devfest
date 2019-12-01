@@ -70,7 +70,29 @@ class PokerHandTest {
 
     @Test
     fun `flush`(){
+        val pokers = ArrayList<Poker>()
+        pokers.add(Poker(Suit.Hearts, 1))
+        pokers.add(Poker(Suit.Hearts, 2))
+        pokers.add(Poker(Suit.Hearts, 3))
+        pokers.add(Poker(Suit.Hearts, 4))
+        pokers.add(Poker(Suit.Hearts, 5))
 
+        val actual: Boolean = PokerParser.isFlush(pokers)
+        val expected = true
+        Assert.assertEquals(expected, actual)
+    }
 
+    @Test
+    fun `not flush`(){
+        val pokers = ArrayList<Poker>()
+        pokers.add(Poker(Suit.Hearts, 1))
+        pokers.add(Poker(Suit.Spade, 2))
+        pokers.add(Poker(Suit.Hearts, 3))
+        pokers.add(Poker(Suit.Hearts, 4))
+        pokers.add(Poker(Suit.Hearts, 5))
+
+        val actual: Boolean = PokerParser.isFlush(pokers)
+        val expected = false
+        Assert.assertEquals(expected, actual)
     }
 }

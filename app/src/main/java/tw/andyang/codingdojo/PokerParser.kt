@@ -22,6 +22,15 @@ class PokerParser {
             }
             return Poker(suit, point)
         }
+
+        fun isFlush(pokers: ArrayList<Poker>): Boolean {
+
+            val set = HashSet<Suit>()
+            for (poker in pokers) {
+                set.add(poker.clubs)
+            }
+            return set.size == 1
+        }
     }
 
 }
