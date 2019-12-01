@@ -32,20 +32,18 @@ class PokerParser {
             return set.size == 1
         }
 
-        fun isFourOfAKind(pokers: java.util.ArrayList<Poker>): Boolean {
-            val pointList =pokers.map { poker ->  poker.point}
-            pointList.forEach({p->
-                if(pointList.filter { it == p }.size == 4){
+        fun isFourOfAKind(pokers: java.util.ArrayList<Poker>): Boolean = pokers.groupBy { it.point }.any { it.value.size == 4 }
+        fun isFullHouse(pokers: ArrayList<Poker>): Boolean {
 
-                }
-            })
-            val set = HashSet<Int>()
-            for(poker in pokers){
-                set.add(poker.point)
+
+            val group  = pokers.groupBy { it.point }
+            if (group.size != 2) {
+                return false
             }
 
-            return set.size == 2
+            return group.any { it.value.size == 3 } && group.any { it.value.size == 2 }
         }
+
     }
 
 }
