@@ -3,15 +3,15 @@ package tw.andyang.codingdojo
 class PokerParser {
 
     companion object {
-        fun parse(intput: String) : Poker{
-            val suitString = intput.substring(0)
-            val pointString = intput.substring(1)
+        fun parse(input: String): Poker {
+            val suitString = input.substring(0)
+            val pointString = input.substring(1)
             val suit = when (suitString) {
                 "C" -> Suit.Clubs
-                else -> TODO()
+                "S" ->  Suit.Spade
+                else-> throw Exception()
             }
-            // TODO
-            return Poker(suit, 0)
+            return Poker(suit, 2)
         }
     }
 

@@ -12,4 +12,14 @@ class PokerHandTest {
         val expected = Poker(Suit.Clubs, 2)
         Assert.assertEquals(expected, actual)
     }
+
+    @Test
+    fun `input S3  is Spade 3`() {
+        val input = "S3"
+        val actual: Poker = PokerParser.parse(input)
+        val expected = Poker(Suit.Spade, 3)
+        Assert.assertEquals(expected, actual)
+    }
+
+
 }
