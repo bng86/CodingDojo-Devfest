@@ -33,6 +33,12 @@ class PokerParser {
         }
 
         fun isFourOfAKind(pokers: java.util.ArrayList<Poker>): Boolean {
+            val pointList =pokers.map { poker ->  poker.point}
+            pointList.forEach({p->
+                if(pointList.filter { it == p }.size == 4){
+
+                }
+            })
             val set = HashSet<Int>()
             for(poker in pokers){
                 set.add(poker.point)
