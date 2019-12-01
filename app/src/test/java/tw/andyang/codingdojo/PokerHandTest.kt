@@ -54,10 +54,23 @@ class PokerHandTest {
     }
 
     @Test
-    fun `input D6 is Daimond 6`() {
-        val input = "SK"
+    fun `input D6 is Diamonds 6`() {
+        val input = "D6"
         val actual: Poker = PokerParser.parse(input)
-        val expected = Poker(Suit.Daimond, 6)
+        val expected = Poker(Suit.Diamonds, 6)
         Assert.assertEquals(expected, actual)
+    }
+    @Test
+    fun `input H6 is Hearts 6`() {
+        val input = "H6"
+        val actual: Poker = PokerParser.parse(input)
+        val expected = Poker(Suit.Hearts, 6)
+        Assert.assertEquals(expected, actual)
+    }
+
+    @Test
+    fun `flush`(){
+
+
     }
 }
